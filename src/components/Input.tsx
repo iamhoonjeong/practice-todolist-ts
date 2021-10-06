@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, SyntheticEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import styled from 'styled-components';
 
 type InputProps = {
@@ -21,10 +21,17 @@ const WriteArea = styled.input`
   width: 240px;
   height: 32px;
   outline: none;
+  background-color: #ededed;
+  border: none;
+  border-bottom: 1px solid black;
+  padding-left: 8px;
 `;
 
 const Button = styled.button`
   width: 70px;
+  border: none;
+  background-color: green;
+  color: white;
 `;
 
 const Input = ({ data, setData }: InputProps) => {
@@ -34,8 +41,13 @@ const Input = ({ data, setData }: InputProps) => {
     setText(e.target.value);
   };
 
-  const onSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!text) {
+      return;
+    }
+
     setData((prev) => prev.concat({ text, done: true }));
     setText('');
   };

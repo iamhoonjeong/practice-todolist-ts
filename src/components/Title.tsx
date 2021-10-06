@@ -8,7 +8,7 @@ const Text = styled.h1`
 `;
 
 const Title = () => {
-  return <Text>타입스크립트 투두리스트</Text>;
+  return <Text>To-do List</Text>;
 };
 
 export default Title;
