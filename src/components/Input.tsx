@@ -17,7 +17,7 @@ const Form = styled.form`
   display: flex;
 `;
 
-const WriteArea = styled.input`
+const InputArea = styled.input`
   width: 240px;
   height: 32px;
   outline: none;
@@ -54,7 +54,7 @@ const Input = ({ data, setData }: InputProps) => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <WriteArea onChange={handleChange} value={text} />
+      <InputArea onChange={handleChange} value={text} />
       <Button type="submit">등록</Button>
     </Form>
   );
